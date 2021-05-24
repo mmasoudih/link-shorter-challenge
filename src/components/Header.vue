@@ -32,6 +32,22 @@
         > Sign Up</a>
       </div>
     </nav>
+    <div class="flex justify-between overflow-hidden items-center">
+      <div>
+        <p class="text-7xl font-bold">
+          More than just shorter links
+        </p>
+        <p class="text-neutral-gray">
+          Build your brand’s recognition and get detailed insights 
+          on how your links are performing.
+        </p>
+      </div>
+      <img
+        src="../assets/images/illustration-working.svg"
+        alt="banner"
+        class="-mr-24"
+      >
+    </div>
   </div>
 </template>
 
