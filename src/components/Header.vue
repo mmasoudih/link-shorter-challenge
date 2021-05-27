@@ -10,38 +10,41 @@
         </a>
         <a
           href="#"
-          class="py-3 pl-3 px-3"
+          class="px-3 py-3 pl-3"
         > Features</a>
         <a
           href="#"
-          class="py-3 px-3"
+          class="px-3 py-3"
         > Pricing</a>
         <a
           href="#"
-          class="py-3 px-3"
+          class="px-3 py-3"
         > Resources</a>
       </div>
       <div>
         <a
           href="#"
-          class="py-3 pl-3 px-3"
+          class="px-3 py-3 pl-3"
         > Login</a>
         <a
           href="#"
-          class="py-3 pl-3 px-3"
+          class="px-3 py-3 pl-3 btn"
         > Sign Up</a>
       </div>
     </nav>
-    <div class="flex justify-between overflow-hidden items-center">
+    <div class="flex items-center justify-between overflow-hidden">
       <div>
-        <p class="text-7xl font-bold text-neutral-dark-blue line-height-1-2">
+        <p class="font-bold text-7xl text-neutral-dark-blue line-height-1-2">
           More than just shorter links
         </p>
         <p class="text-neutral-gray">
           Build your brand’s recognition and get detailed insights 
           on how your links are performing.
         </p>
-        <a href="">Get Started</a>
+        <a
+          href=""
+          class="mt-5 btn"  
+        >Get Started</a>
       </div>
       <img
         src="../assets/images/illustration-working.svg"
@@ -68,5 +71,8 @@ div > a{
 }
 .line-height-1-2{
   line-height: 1.2em
+}
+.btn{
+  @apply py-2 px-6 bg-primary-cyan text-white font-bold rounded-3xl;
 }
 </style>

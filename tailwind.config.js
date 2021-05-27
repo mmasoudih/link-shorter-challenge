@@ -13,7 +13,8 @@ module.exports = {
         'neutral-gray': 'hsl(0, 0%, 75%)',
         'neutral-gray-violet': 'hsl(257, 7%, 63%)',
         'neutral-dark-blue': 'hsl(255, 11%, 22%)',
-        'neutral-dark-violet': 'hsl(260, 8%, 14%)'
+        'neutral-dark-violet': 'hsl(260, 8%, 14%)',
+        'neutral-light-gray': 'hsl(230, 25%, 95%)'
       }
     },
   },
