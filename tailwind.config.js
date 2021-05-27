@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Poppins', 'Helvetica', 'Arial', 'sans-serif']
+      },
       colors:{
         'primary-cyan': 'hsl(180, 66%, 49%)',
         'primary-dark-violet': 'hsl(257, 27%, 26%)',

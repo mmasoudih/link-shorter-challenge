@@ -34,13 +34,14 @@
     </nav>
     <div class="flex justify-between overflow-hidden items-center">
       <div>
-        <p class="text-7xl font-bold">
+        <p class="text-7xl font-bold text-neutral-dark-blue line-height-1-2">
           More than just shorter links
         </p>
         <p class="text-neutral-gray">
           Build your brand’s recognition and get detailed insights 
           on how your links are performing.
         </p>
+        <a href="">Get Started</a>
       </div>
       <img
         src="../assets/images/illustration-working.svg"
@@ -64,5 +65,8 @@ export default defineComponent({
 <style scoped>
 div > a{
   display: inline-block;
+}
+.line-height-1-2{
+  line-height: 1.2em
 }
 </style>
