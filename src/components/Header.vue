@@ -72,7 +72,4 @@ div > a{
 .line-height-1-2{
   line-height: 1.2em
 }
-.btn{
-  @apply py-2 px-6 bg-primary-cyan text-white font-bold rounded-3xl;
-}
 </style>

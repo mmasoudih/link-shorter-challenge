@@ -4,7 +4,7 @@
     <div class="container mx-auto">
       <ShorterBox class="relative z-40 top-20" />
     </div>
-    <div class="z-0 pt-40 text-center bg-neutral-light-gray">
+    <div class="z-0 py-40 text-center bg-neutral-light-gray">
       <div class="w-5/12 mx-auto">
         <h1 class="py-5 text-4xl font-bold text-neutral-dark-blue">
           Advanced Statistics
@@ -66,21 +66,152 @@
         </div>
       </div>
     </div>
+    <div class="flex flex-col items-center justify-center py-8 bg-primary-dark-violet boost-link-section">
+      <h1 class="pt-12 pb-6 text-4xl font-bold text-white">
+        Boost your links today
+      </h1>
+      <button class="px-10 py-3 text-lg font-bold text-white bg-primary-cyan rounded-3xl">
+        Get Started
+      </button>
+    </div>
+    <div class="grid grid-cols-12 py-8 bg-neutral-dark-violet">
+      <div class="flex items-center col-span-4">
+        <div>
+          <img
+            src="./assets/images/logo.svg"
+            class="brightness-filter"
+          >
+        </div>
+      </div>
+      <div class="col-span-2">
+        <FooterList
+          :lists="featuresListMenu"
+          label="Features"
+        />
+      </div>
+      <div class="col-span-2">
+        <FooterList
+          :lists="resourcesListMenu"
+          label="Resources"
+        />
+      </div>
+      <div class="col-span-1">
+        <FooterList
+          :lists="companyListMenu"
+          label="Company"
+        />
+      </div>
+      <div class="flex col-span-2 col-start-10 pt-3 justify-evenly">
+        <div>
+          <img
+            src="./assets/images/icon-facebook.svg"
+          >
+        </div>
+        <div>
+          <img
+            src="./assets/images/icon-instagram.svg"
+          >
+        </div>
+        <div>
+          <img
+            src="./assets/images/icon-pinterest.svg"
+          >
+        </div>
+        <div>
+          <img
+            src="./assets/images/icon-twitter.svg"
+          >
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { reactive, defineComponent } from 'vue'
 import Header from './components/Header.vue'
 import ShorterBox from './components/ShorterBox.vue'
 import StatisticsBox from './components/StatisticsBox.vue'
+import FooterList from './components/FooterList.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     Header,
     ShorterBox,
-    StatisticsBox
+    StatisticsBox,
+    FooterList
+  },
+  setup(){
+
+    const featuresListMenu = reactive([
+      {
+        id: 1,
+        title: 'Link Shortening',
+        href: '#'
+      },
+      {
+        id: 2,
+        title: 'Branded Links',
+        href: '#'
+      },
+      {
+        id: 3,
+        title: 'Analytics',
+        href: '#'
+      }
+    ])
+
+
+    const resourcesListMenu = reactive([
+      {
+        id: 1,
+        title: 'Blog',
+        href: '#'
+      },
+      {
+        id: 2,
+        title: 'Developers',
+        href: '#'
+      },
+      {
+        id: 3,
+        title: 'Support',
+        href: '#'
+      }
+    ])
+
+
+    const companyListMenu = reactive([
+      {
+        id: 1,
+        title: 'About',
+        href: '#'
+      },
+      {
+        id: 2,
+        title: 'Our Team',
+        href: '#'
+      },
+      {
+        id: 3,
+        title: 'Careers',
+        href: '#'
+      },
+      {
+        id: 4,
+        title: 'Contact',
+        href: '#'
+      }
+
+      
+    ])
+
+    return {
+      featuresListMenu,
+      resourcesListMenu,
+      companyListMenu
+    }
   }
 })
 </script>
@@ -96,6 +227,14 @@ export default defineComponent({
   top: 60%;
   left: 50%;
   transform: translateX(-50%);
+}
+.boost-link-section{
+  background-image: url('./assets/images/bg-boost-desktop.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.brightness-filter{
+  filter: brightness(5);
 }
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
