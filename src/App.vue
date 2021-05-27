@@ -4,7 +4,18 @@
     <div class="container mx-auto">
       <ShorterBox class="relative z-40 top-20" />
     </div>
-    <div class="z-0 py-40 text-center bg-neutral-light-gray">
+    <div class="z-0 pt-20 pb-40 text-center bg-neutral-light-gray">
+      <div class="container mx-auto">
+        <template
+          v-for="n in 5"
+          :key="n"
+          class="pt-40"
+        >
+          <div class="w-8/12 mx-auto my-2 bg-white rounded-lg">
+            test
+          </div>
+        </template>
+      </div>
       <div class="w-5/12 mx-auto">
         <h1 class="py-5 text-4xl font-bold text-neutral-dark-blue">
           Advanced Statistics
@@ -15,7 +26,7 @@
         </p>
       </div>
       <div class="container mx-auto">
-        <div class="relative grid grid-flow-row grid-cols-3 gap-6 px-10 py-20 line-background">
+        <div class="relative grid grid-cols-3 gap-6 px-10 py-20 grid-auto-rows-fr line-background">
           <StatisticsBox>
             <template #icon>
               <img
@@ -75,7 +86,7 @@
       </button>
     </div>
     <div class="grid grid-cols-12 py-8 bg-neutral-dark-violet">
-      <div class="flex items-center col-span-4">
+      <div class="flex flex-col items-center col-span-4">
         <div>
           <img
             src="./assets/images/logo.svg"
