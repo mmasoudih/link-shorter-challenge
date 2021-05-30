@@ -68,6 +68,12 @@
   .border-b-1 {
     border-bottom-width: 1px;
   }
+  .-mt-608 {
+    margin-top: -38rem;
+  }
+  .-mt-800 {
+    margin-top: -50rem;
+  }
 }
 .btn {
   @apply font-bold text-white bg-primary-cyan;

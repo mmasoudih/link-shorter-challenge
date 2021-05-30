@@ -91,7 +91,7 @@
           on how your links are performing.
         </p>
         <a
-          href=""
+          href="#"
           class="inline-block px-10 py-4 transition-all lg:ml-10 lg:px-6 lg:py-2 btn rounded-3xl hover:bg-primary-cyan-light"  
         >Get Started</a>
       </div>

@@ -27,8 +27,12 @@
               </p>
 
               <div class="w-full px-3 md:w-min">
-                <button class="block w-full px-6 py-2 rounded-md btn">
-                  Copy
+                <button
+                  class="block w-full px-6 py-2 font-bold text-white rounded-md bg-primary-dark-violet focus:outline-none"
+                  :class="{'btn': !copyState, }"
+                  @click="setClipboard(link.result.full_short_link2)"
+                >
+                  {{ copyState ? 'Copeid!' : 'Copy' }}
                 </button>
               </div>
             </div>
@@ -45,7 +49,10 @@
         </p>
       </div>
       <div class="container mx-auto">
-        <div class="relative grid gap-6 px-10 py-20 md:gap-2 md:px-0 md:grid-cols-3 auto-rows-fr auto-cols-fr line-background">
+        <div
+          class="relative hidden w-full h-2 md:block top-60 bg-primary-cyan"
+        />
+        <div class="relative z-10 grid gap-6 px-10 py-20 md:gap-2 lg:gap-6 md:px-0 md:grid-cols-3 auto-rows-fr auto-cols-fr"> 
           <StatisticsBox>
             <template #icon>
               <img
@@ -94,9 +101,12 @@
             </template>
           </StatisticsBox>
         </div>
+        <div
+          class="relative z-0 w-2 min-h-screen mx-auto -mt-800 md:hidden bg-primary-cyan"
+        />
       </div>
     </div>
-    <div class="flex flex-col items-center justify-center py-8 text-center bg-right bg-no-repeat bg-primary-dark-violet bg-boost-link-mobile-pattern md:bg-boost-link-desktop-pattern">
+    <div class="flex flex-col items-center justify-center py-8 text-center bg-right bg-no-repeat lg:bg-center bg-primary-dark-violet bg-boost-link-mobile-pattern md:bg-boost-link-desktop-pattern">
       <h1 class="pt-12 pb-6 text-2xl font-bold text-white md:text-4xl">
         Boost your links today
       </h1>
@@ -199,6 +209,7 @@ export default defineComponent({
   },
   setup(){
     const shortedLink = ref([])
+    const copyState = ref(false)
     const featuresListMenu = reactive([
       {
         id: 1,
@@ -269,30 +280,37 @@ export default defineComponent({
     function getShortedLinks(){
       shortedLink.value = getShortedLink()
     }
+    function setClipboard(value) {
+      let tempInput = document.createElement('input')
+      tempInput.style = 'position: absolute; left: -1000px; top: -1000px'
+      tempInput.value = value
+      document.body.appendChild(tempInput)
+      tempInput.select()
+      document.execCommand('copy')
+      document.body.removeChild(tempInput)
+      copyState.value = true
+      resetCopyState()
+    }
+    function resetCopyState(){
+      setTimeout(() =>{
+        copyState.value = false
+      }, 2000)
+    }
 
     return {
       featuresListMenu,
       resourcesListMenu,
       companyListMenu,
       shortedLink,
-      getShortedLinks
+      getShortedLinks,
+      setClipboard,
+      copyState
     }
   }
 })
 </script>
 
 <style>
-.line-background::before{
-  content: '';
-  width: 50vw;
-  height: 10px;
-  background: #2acfcf;
-  z-index: 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .brightness-filter{
   filter: brightness(5);
 }
@@ -353,12 +371,5 @@ export default defineComponent({
   backface-visibility: visible !important;
   animation-name: flipInX;
 }
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+
 </style>
