@@ -43,7 +43,7 @@
 <script lang="ts">
 import { defineComponent, getCurrentInstance, ref } from 'vue'
 export default defineComponent({
-  setup(){
+  setup(_, context){
     const app = getCurrentInstance()
     const axios = app.appContext.config.globalProperties.$axios
     const url = ref('')
@@ -68,6 +68,7 @@ export default defineComponent({
       const links = getShortedLink()
       links.push(data)
       localStorage.setItem('shorted_links', JSON.stringify(links))
+      context.emit('added-new-link', true)
     }
     function getShortedLink(){
       let data = localStorage.getItem('shorted_links')

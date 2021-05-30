@@ -28,7 +28,7 @@
         > Login</a>
         <a
           href="#"
-          class="px-3 py-3 pl-3 btn"
+          class="px-3 py-3 pl-3 btn rounded-3xl"
         > Sign Up</a>
       </div>
     </nav>
@@ -43,7 +43,7 @@
         </p>
         <a
           href=""
-          class="mt-5 btn"  
+          class="mt-5 btn rounded-3xl"  
         >Get Started</a>
       </div>
       <img

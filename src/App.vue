@@ -2,19 +2,38 @@
   <div class="h-screen">
     <Header />
     <div class="container mx-auto">
-      <ShorterBox class="relative z-40 top-20" />
+      <ShorterBox
+        class="relative z-40 top-20"
+        @added-new-link="getShortedLinks"
+      />
     </div>
     <div class="z-0 pt-20 pb-40 text-center bg-neutral-light-gray">
       <div class="container mx-auto">
-        <template
-          v-for="n in 5"
-          :key="n"
-          class="pt-40"
+        <transition-group
+          name="flip"
         >
-          <div class="w-8/12 mx-auto my-2 bg-white rounded-lg">
-            test
-          </div>
-        </template>
+          <template
+            v-for="(link, index) in shortedLink"
+            :key="index"
+            class="pt-40"
+          >
+            <div class="flex items-center justify-between w-9/12 py-4 mx-auto my-2 bg-white rounded-lg shadow-sm">
+              <p class="w-full pl-5 text-left ">
+                {{ link.result.original_link }}
+              </p>
+            
+              <p class="w-full col-start-7 text-right text-primary-cyan">
+                {{ link.result.full_short_link2 }}
+              </p>
+
+              <div class="px-3">
+                <button class="rounded-none btn">
+                  Copy!
+                </button>
+              </div>
+            </div>
+          </template>
+        </transition-group>
       </div>
       <div class="w-5/12 mx-auto">
         <h1 class="py-5 text-4xl font-bold text-neutral-dark-blue">
@@ -139,11 +158,12 @@
 </template>
 
 <script lang="ts">
-import { reactive, defineComponent } from 'vue'
+import { ref,reactive, defineComponent, onMounted } from 'vue'
 import Header from './components/Header.vue'
 import ShorterBox from './components/ShorterBox.vue'
 import StatisticsBox from './components/StatisticsBox.vue'
 import FooterList from './components/FooterList.vue'
+import { getShortedLink } from './functions/readLocalStorage.js'
 
 export default defineComponent({
   name: 'App',
@@ -154,7 +174,7 @@ export default defineComponent({
     FooterList
   },
   setup(){
-
+    const shortedLink = ref([])
     const featuresListMenu = reactive([
       {
         id: 1,
@@ -217,11 +237,21 @@ export default defineComponent({
 
       
     ])
+    
+    onMounted(() => {
+      console.log('mounted ...')
+      shortedLink.value = getShortedLink()
+    })
+    function getShortedLinks(){
+      shortedLink.value = getShortedLink()
+    }
 
     return {
       featuresListMenu,
       resourcesListMenu,
-      companyListMenu
+      companyListMenu,
+      shortedLink,
+      getShortedLinks
     }
   }
 })
@@ -246,6 +276,63 @@ export default defineComponent({
 }
 .brightness-filter{
   filter: brightness(5);
+}
+.flip-enter {
+  opacity:0;
+}
+
+.flip-enter-active{
+  animation: flipInX 1s;
+}
+
+.flip-leave {
+  opacity:1;
+}
+
+.flip-leave-active {
+  animation: flipInX 1s reverse;
+}
+
+
+@-webkit-keyframes flipInX {
+  0% {
+      -webkit-transform: perspective(400px) rotateX(90deg);
+      opacity: 0;
+  }
+  40% {
+      -webkit-transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+      -webkit-transform: perspective(400px) rotateX(10deg);
+  }
+  100% {
+      -webkit-transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+  }
+}
+
+@keyframes flipInX {
+  0% {
+      transform: perspective(400px) rotateX(90deg); 
+      opacity: 0;
+  }
+  40% {
+      transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+      transform: perspective(400px) rotateX(10deg);
+  }
+  100% {
+      transform: perspective(400px) rotateX(0deg);
+      opacity: 1;
+  }
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  backface-visibility: visible !important;
+  animation-name: flipInX;
 }
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -67,5 +67,5 @@
   }
 }
 .btn {
-  @apply px-6 py-2 font-bold text-white bg-primary-cyan rounded-3xl;
+  @apply px-6 py-2 font-bold text-white bg-primary-cyan;
 }
