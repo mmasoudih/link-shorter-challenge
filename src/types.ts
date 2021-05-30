@@ -1,0 +1,1 @@
+export type footerList = { id: number, href: string, title: string }

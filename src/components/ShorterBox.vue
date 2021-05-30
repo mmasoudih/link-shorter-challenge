@@ -49,11 +49,12 @@
 
 <script lang="ts">
 import { defineComponent, getCurrentInstance, ref } from 'vue'
+import { getShortedLink } from '../functions/readLocalStorage'
 export default defineComponent({
   emits:['added-new-link'],
   setup(_, context){
     const app = getCurrentInstance()
-    const axios = app.appContext.config.globalProperties.$axios
+    const axios = app?.appContext.config.globalProperties.$axios
     const url = ref('')
     const loading = ref(false)
     const error = ref(false)
@@ -85,21 +86,17 @@ export default defineComponent({
       }
     }
     
-    function validateURL(url){
+    function validateURL(url: string){
       const pattern = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/g
       return pattern.test(url)
     }
 
-    function addNewLink(data) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function addNewLink(data: any) {
       const links = getShortedLink()
       links.push(data)
       localStorage.setItem('shorted_links', JSON.stringify(links))
       context.emit('added-new-link', true)
-    }
-    function getShortedLink(){
-      let data = localStorage.getItem('shorted_links')
-      let shortedLinks = data ? JSON.parse(data) : []
-      return  shortedLinks
     }
     return {
       shortLink,

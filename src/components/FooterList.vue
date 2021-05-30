@@ -18,12 +18,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-
+import { defineComponent,PropType } from 'vue'
+import { footerList } from './../types'
 export default defineComponent({
   props:{
     lists:{
-      type: Array,
+      type: Array as PropType<footerList[]>,
       required: true
     },
     label:{
