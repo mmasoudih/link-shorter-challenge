@@ -1,13 +1,13 @@
 <template>
-  <div class="flex justify-around w-9/12 mx-auto rounded-lg bg-shorten py-14 bg-primary-dark-violet">
+  <div class="flex flex-col w-9/12 py-8 mx-auto bg-right-top bg-no-repeat rounded-lg md:bg-bottom-left lg:justify-around lg:flex-row lg:bg-shorten-box-desktop-pattern bg-shorten-box-mobile-pattern lg:py-12 xl:py-14 bg-primary-dark-violet">
     <input
       v-model="url"
       type="text"
       placeholder="Shorten a link here ..."
-      class="w-10/12 ml-14 py-3.5 px-5 mr-5 rounded-md"
+      class="lg:w-10/12 lg:ml-14 mx-6 py-3.5 px-5 lg:mr-5 rounded-md"
     >
     <button
-      class="flex items-center justify-center w-2/12 font-bold text-white rounded-md bg-primary-cyan mr-14"
+      class="lg:mr-8 lg:ml-0 mx-6 my-1.5 lg:my-0 py-2 lg:px-5 flex items-center justify-center font-bold text-white transition-colors rounded-md lg:w-3/12 xl:w-2/12 hover:bg-primary-cyan-light bg-primary-cyan xl:mr-14"
       :class="{'opacity-75' :loading}"
       @click="shortLink"
     >
@@ -43,6 +43,7 @@
 <script lang="ts">
 import { defineComponent, getCurrentInstance, ref } from 'vue'
 export default defineComponent({
+  emits:['added-new-link'],
   setup(_, context){
     const app = getCurrentInstance()
     const axios = app.appContext.config.globalProperties.$axios
@@ -86,8 +87,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.bg-shorten{
+/* .bg-shorten{
     background-image: url("../assets/images/bg-shorten-desktop.svg");
     background-position: -60px 0;
-}
+} */
 </style>

@@ -65,7 +65,10 @@
       U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
       U+2215, U+FEFF, U+FFFD;
   }
+  .border-b-1 {
+    border-bottom-width: 1px;
+  }
 }
 .btn {
-  @apply px-6 py-2 font-bold text-white bg-primary-cyan;
+  @apply font-bold text-white bg-primary-cyan;
 }

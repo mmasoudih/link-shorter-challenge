@@ -1,9 +1,9 @@
 <template>
-  <div class="relative min-h-full pt-16 bg-white rounded-sm shadow-sm">
-    <div class="absolute flex items-center justify-center w-20 h-20 rounded-full bg-primary-dark-violet -top-10 left-5">
+  <div class="relative min-h-full pt-16 transition-all bg-white rounded-sm shadow-sm hover:shadow-md">
+    <div class="absolute inset-x-0 flex items-center justify-center w-20 h-20 mx-auto rounded-full lg:inset-auto -top-10 bg-primary-dark-violet lg:-top-10 lg:left-5">
       <slot name="icon" />
     </div>
-    <div class="px-8 text-left">
+    <div class="px-8 lg:text-left">
       <h1 class="pb-3 text-xl font-bold text-neutral-dark-blue">
         <slot name="title" />
       </h1>

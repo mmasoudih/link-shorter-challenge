@@ -9,7 +9,7 @@
     >
       <a
         :href="list.href"
-        class="block py-1 text-sm text-neutral-gray-violet"
+        class="block py-1 text-sm transition-all text-neutral-gray-violet hover:text-primary-cyan"
       >
         {{ list.title }}  
       </a>
