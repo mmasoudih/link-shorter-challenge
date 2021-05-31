@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Solution URL](https://www.frontendmentor.io/solutions/link-shorter-challenge-with-vuejsv3-and-tailwind-css-5r4fhT1gN)
 - Live Site URL: [link shorter challenge live](https://mmasoudih.github.io/link-shorter-challenge/)
 
 ## My process
