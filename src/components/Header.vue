@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container relative mx-auto">
     <nav class="flex justify-between py-5">
       <div class="flex">
         <a
@@ -55,7 +55,7 @@
     <transition name="flip">
       <div
         v-if="menuState"
-        class="w-10/12 mx-auto rounded-xl bg-primary-dark-violet lg:hidden"
+        class="absolute inset-x-0 w-10/12 mx-auto rounded-xl bg-primary-dark-violet lg:hidden top-30"
       >
         <div class="flex flex-col text-center">
           <a

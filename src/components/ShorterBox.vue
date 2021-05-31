@@ -16,6 +16,7 @@
     <button
       class="focus:outline-none lg:self-start lg:mr-8 lg:ml-0 mx-6 my-1.5 lg:my-0 py-4 lg:px-5 flex items-center justify-center font-bold text-white transition-colors rounded-md lg:w-3/12 xl:w-2/12 hover:bg-primary-cyan-light bg-primary-cyan xl:mr-14"
       :class="{'opacity-75' :loading, 'pt-5': loading}"
+      :disabled="loading"
       @click="shortLink"
     >
       <template v-if="loading">
@@ -62,6 +63,7 @@ export default defineComponent({
 
     async function shortLink(){
       if(url.value != ''){
+        url.value = url.value.toLowerCase()
         if(validateURL(url.value)){
           loading.value = true
           error.value = false
