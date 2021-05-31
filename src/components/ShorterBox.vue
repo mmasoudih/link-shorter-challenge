@@ -72,10 +72,10 @@ export default defineComponent({
             const {data} = await axios.get(`shorten?url=${url.value}`)
             addNewLink(data)
             loading.value = false
+            url.value = ''
           }catch(err){
             console.log('error, ', err)
             loading.value = false
-
           }
         }else{
           error.value = true
