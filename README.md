@@ -1,27 +1,57 @@
-# Vue 3 + Typescript + Vite
+# Frontend Mentor - Shortly URL shortening API Challenge solution
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+This is a solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Recommended IDE Setup
+## Table of contents
 
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-### If Using `<script setup>`
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
+## Overview
 
-## Type Support For `.vue` Imports in TS
+### The challenge
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
+Users should be able to:
 
-### If Using Volar
+- View the optimal layout for the site depending on their device's screen size
+- Shorten any valid URL
+- See a list of their shortened links, even after refreshing the browser
+- Copy the shortened link to their clipboard in a single click
+- Receive an error message when the `form` is submitted if:
+  - The `input` field is empty
 
-Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
+### Screenshot
 
-### If Using Vetur
+![](./screenshot.png)
 
-1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
-2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
-3. Open `src/main.ts` in VSCode
-4. Open the VSCode command palette
-5. Search and run "Select TypeScript version" -> "Use workspace version"
+### Links
+
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [link shorter challenge live](https://mmasoudih.github.io/link-shorter-challenge/)
+
+## My process
+
+### Built with
+
+- Mobile-first workflow
+- [Axios](https://github.com/axios/axios) - for API call
+- [Vue.js (v3)](https://v3.vuejs.org/) - JavaScript Framework
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS Framework
+
+### Useful resources
+
+- [URL Regex](https://stackoverflow.com/a/17773849/13798095) - This helped me for check validation of an URL
+- [Fill SVG](https://stackoverflow.com/a/64204836/13798095) - This helped me for change color of SVG using Tailwind CSS
+
+## Author
+
+- Frontend Mentor - [@mmasoudih](https://www.frontendmentor.io/profile/mmasoudih)
+- Telegram - [@mmasoudi79](https://t.me/mmasoudi79)
